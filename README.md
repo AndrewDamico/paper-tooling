@@ -97,6 +97,50 @@ Example:
 python tooling/paper-tooling/scripts/doctor.py
 ```
 
+## Bespoke notebook helpers
+
+The `andrewdamico` package provides a user-friendly namespace for notebook helper functions used in Andrew D'Amico's teaching and research work. These helpers manage experimental runs and export outputs.
+
+### Usage example
+
+```python
+import andrewdamico as ad
+
+# Start a new experimental run
+run_id = ad.start_run(project_root=".", label="exp1")
+
+# Set as current run (optional - allows omitting run_id in subsequent calls)
+ad.set_current_run(project_root=".", run_id=run_id)
+
+# Export a matplotlib figure
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.plot([1, 2, 3], [1, 4, 9])
+ad.export_figure(project_root=".", run_id=run_id, name="fig_01", fig=fig, formats=["pdf", "png"])
+
+# Export a pandas DataFrame as a table
+import pandas as pd
+df = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+ad.export_table(project_root=".", run_id=run_id, name="tbl_01", df=df, formats=["tex", "csv"])
+```
+
+### Run structure
+
+Each run creates a directory structure:
+```
+project_root/
+  runs/
+    <run_id>/
+      metadata.json
+      figures/
+        fig_01.pdf
+        fig_01.png
+      tables/
+        tbl_01.tex
+        tbl_01.csv
+    CURRENT_RUN.txt
+```
+
 ## Development
 
 ### Running tests
