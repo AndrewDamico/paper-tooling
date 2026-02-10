@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: Paper Tooling
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: D'Amico
+    given-names: Andrew
+license: Apache-2.0
+repository-code: "https://github.com/AndrewDamico/paper-tooling"
+version: 0.1.0
+date-released: 2026-02-10
+preferred-citation:
+  type: software
+  title: Paper Tooling
+  authors:
+    - family-names: D'Amico
+      given-names: Andrew
+  license: Apache-2.0
+  repository-code: "https://github.com/AndrewDamico/paper-tooling"
+  version: 0.1.0
